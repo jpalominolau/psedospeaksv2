@@ -68,6 +68,7 @@ export async function GET(req, env) {
   try {
     // Recuperar datos de KV
     const data = await env.AUDIOS.get("geminiResponse");
+    console.log(data)
 
     if (!data) {
       return new Response(JSON.stringify({ error: "No data available" }), {
