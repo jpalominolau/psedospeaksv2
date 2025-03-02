@@ -11,11 +11,5 @@
   "observability": {
     "enabled": true
   },
-  "upload_source_maps": true,
-  "kv_namespaces": [
-    {
-      "binding": "AUDIOS",
-      "id": "2d0f7df82bb14b28a2d07d91098cdf27"
-    }
-  ]
+  "upload_source_maps": true
 }
