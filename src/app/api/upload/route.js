@@ -46,7 +46,7 @@ export async function POST(req, env) {
     };
 
     // Guardar en KV
-    await env.audios.put("geminiResponse", JSON.stringify(jsonData));
+    await env.AUDIOS.put("geminiResponse", JSON.stringify(jsonData));
 
     return new Response(
       JSON.stringify({ message: "Processed successfully", response: jsonData }),
@@ -67,7 +67,7 @@ export async function POST(req, env) {
 export async function GET(req, env) {
   try {
     // Recuperar datos de KV
-    const data = await env.audios.get("geminiResponse");
+    const data = await env.AUDIOS.get("geminiResponse");
 
     if (!data) {
       return new Response(JSON.stringify({ error: "No data available" }), {
