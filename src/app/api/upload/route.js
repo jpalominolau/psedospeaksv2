@@ -68,12 +68,12 @@ export async function POST(req, env) {
 
     console.log("📦 Guardando respuesta en KV Storage...");
     
-    if (!env.audios) {
+    if (!env.AUDIOS) {
       throw new Error("KV Storage (audios) is not configured");
     }
 
     // 🔹 Guardar en KV
-    await env.audios.put("geminiResponse", JSON.stringify(jsonData));
+    await env.AUDIOS.put("geminiResponse", JSON.stringify(jsonData));
 
     console.log("✅ Datos guardados correctamente.");
 
@@ -97,12 +97,12 @@ export async function GET(req, env) {
   try {
     console.log("📤 Recuperando datos desde KV Storage...");
     
-    if (!env.audios) {
+    if (!env.AUDIOS) {
       throw new Error("KV Storage (audios) is not configured");
     }
 
     // 🔹 Leer desde KV
-    const data = await env.audios.get("geminiResponse");
+    const data = await env.AUDIOS.get("geminiResponse");
 
     if (!data) {
       return new Response(JSON.stringify({ error: "No data available" }), {
