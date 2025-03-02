@@ -1,0 +1,8 @@
+{
+  "input": "The audio requests pseudocode for a door opening and closing mechanism.",
+  "output": "```\nBEGIN\n  Check if door is closed.\n  IF door is closed THEN\n    Open the door.\n  ELSE\n    Close the door.\n  ENDIF\nEND\n```",
+  "variables": [
+    "* door"
+  ],
+  "feedback": "The pseudocode is very basic and lacks detail.  It doesn't account for factors like sensors to determine the door's state, mechanisms for opening and closing (motor, handle, etc.), or error handling (e.g., what happens if the motor fails).  A more robust solution would include these considerations.  For instance, instead of simply \"Open the door,\" it could include \"Activate door opening mechanism\" and specify a timeout or error check.  Similarly, for \"Check if door is closed,\" it needs to specify *how* the system checks (sensor, switch)."
+}

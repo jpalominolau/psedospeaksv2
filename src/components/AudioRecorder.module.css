@@ -1,0 +1,108 @@
+/* src/components/AudioRecorder.module.css */
+
+.audio-recorder-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .controls {
+    margin-bottom: 25px;
+  }
+  
+  .record-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  .record-button.start {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .record-button.stop {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .record-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .response-section {
+    margin-top: 20px;
+  }
+  
+  .subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .response-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .response-content p {
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+  
+  .code-block {
+    display: block;
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #d4d4d4; /* Texto claro */
+    font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada */
+    font-size: 14px;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto; /* Scroll horizontal si el contenido es muy ancho */
+    white-space: pre-wrap; /* Mantener saltos de línea */
+    word-break: break-word; /* Evitar desbordamiento */
+    margin: 10px 0;
+  }
+  
+  .no-response {
+    font-size: 16px;
+    color: #888888;
+    font-style: italic;
+  }
+  
+  @media (max-width: 768px) {
+    .audio-recorder-container {
+      padding: 20px;
+    }
+  
+    .title {
+      font-size: 20px;
+    }
+  
+    .record-button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
