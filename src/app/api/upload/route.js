@@ -5,7 +5,7 @@ export async function POST(req, env) {
     console.log("📦 Received POST request");
 
     // 🔹 Validar que el KV esté disponible
-    if (!env.AUDIOS) {
+    if (!env.PS_KV) {
       console.error("❌ AUDIOS KV namespace is not configured");
       return new Response(JSON.stringify({ error: "KV namespace not configured" }), {
         status: 500,
@@ -96,7 +96,7 @@ export async function POST(req, env) {
     // 🔹 Guardar en KV
     try {
       console.log("📦 Saving data to KV...");
-      await env.AUDIOS.put("geminiResponse", JSON.stringify(jsonData));
+      await env.PS_KV.put("geminiResponse", JSON.stringify(jsonData));
       console.log("📦 Data saved successfully");
     } catch (kvError) {
       console.error("❌ Error saving data to KV:", kvError.message);
@@ -127,7 +127,7 @@ export async function GET(req, env) {
     console.log("📦 Fetching data from KV...");
 
     // 🔹 Validar que el KV esté disponible
-    if (!env.AUDIOS) {
+    if (!env.PS_KV) {
       console.error("❌ AUDIOS KV namespace is not configured");
       return new Response(JSON.stringify({ error: "KV namespace not configured" }), {
         status: 500,
@@ -139,7 +139,7 @@ export async function GET(req, env) {
     let data;
     try {
       console.log("📦 Fetching key 'geminiResponse' from KV...");
-      data = await env.AUDIOS.get("geminiResponse");
+      data = await env.PS_KV.get("geminiResponse");
       console.log("📦 Data fetched from KV:", data);
     } catch (kvError) {
       console.error("❌ Error fetching data from KV:", kvError.message);

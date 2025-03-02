@@ -11,5 +11,11 @@
   "observability": {
     "enabled": true
   },
-  "upload_source_maps": true
+  "upload_source_maps": true,
+  "kv_namespaces": [
+    {
+      "binding": "PS_KV",
+      "id": "ce897ccbb20c4b96adbf31c0c16157a9"
+    }
+  ]
 }
