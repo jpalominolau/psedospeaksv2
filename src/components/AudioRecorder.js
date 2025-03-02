@@ -72,6 +72,7 @@ export default function AudioRecorder() {
       streamRef.current.getTracks().forEach(track => track.stop());
     }
   };
+
   const toggleRecord = () => {
     if (isRecording) {
       stopRecording();
@@ -79,19 +80,20 @@ export default function AudioRecorder() {
       startRecording();
     }
   };
+
   return (
     <div className={styles['audio-recorder-container']}>
       <h2 className={styles.title}>Record Audio</h2>
       <div className={styles.controls}>
         <button
           className={`${styles['record-button']} ${isRecording ? styles.stop : styles.start}`}
-          onClick={isRecording ? stopRecording : startRecording}
+          onClick={toggleRecord}
         >
           {isRecording ? 'Stop Recording' : 'Start Recording'}
         </button>
       </div>
       <div className={styles['response-section']}>
-        <h3 className={styles.subtitle}>Gemini's Response:</h3>
+        <h3 className={styles.subtitle}>Gemini&apos;s Response:</h3>
         {response ? (
           <div className={styles['response-content']}>
             <p><strong>Input:</strong> {response.input}</p>
@@ -102,7 +104,7 @@ export default function AudioRecorder() {
               ))}
             </pre>
             <p><strong>Variables:</strong> {response.variables.join(', ')}</p>
-            <p><strong>Feedback:</strong> {response.feedback}</p>
+            <p><strong>Feedback:</strong> {response.feedback.replace(/'/g, '&#39;')}</p>
           </div>
         ) : (
           <p className={styles['no-response']}>No response yet.</p>
