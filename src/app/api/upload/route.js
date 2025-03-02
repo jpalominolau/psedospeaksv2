@@ -68,11 +68,12 @@ export async function POST(req, env) {
 
     console.log("📦 Guardando respuesta en KV Storage...");
     
-    if (!env.AUDIOS) {
-      throw new Error("KV Storage (AUDIOS) is not configured");
+    if (!env.audios) {
+      throw new Error("KV Storage (audios) is not configured");
     }
 
-    await env.AUDIOS.put("geminiResponse", JSON.stringify(jsonData));
+    // 🔹 Guardar en KV
+    await env.audios.put("geminiResponse", JSON.stringify(jsonData));
 
     console.log("✅ Datos guardados correctamente.");
 
@@ -96,11 +97,12 @@ export async function GET(req, env) {
   try {
     console.log("📤 Recuperando datos desde KV Storage...");
     
-    if (!env.AUDIOS) {
-      throw new Error("KV Storage (AUDIOS) is not configured");
+    if (!env.audios) {
+      throw new Error("KV Storage (audios) is not configured");
     }
 
-    const data = await env.AUDIOS.get("geminiResponse");
+    // 🔹 Leer desde KV
+    const data = await env.audios.get("geminiResponse");
 
     if (!data) {
       return new Response(JSON.stringify({ error: "No data available" }), {
@@ -123,4 +125,3 @@ export async function GET(req, env) {
     });
   }
 }
-

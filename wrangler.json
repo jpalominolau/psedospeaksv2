@@ -14,7 +14,7 @@
   "upload_source_maps": true,
   "kv_namespaces": [
     {
-      "binding": "AUDIOS",
+      "binding": "audios",
       "id": "d587027057f64f22b0849560eb7cde92"
     }
   ]
